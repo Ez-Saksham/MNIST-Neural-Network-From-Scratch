@@ -1,0 +1,11 @@
+-------------From 11.13% to 78.5% Accuracy.----------
+
+So what changes did i made to my Neural Network written completely in Numpy?
+
+1 : The main issue was that i initialized my weights with random.rand() which resulted my weights to be always positive because of which my weight sum (z) was always positive and had a high value like +30 or +35. As a result of which my sigmoid function that gives results in the range of 0-1, started returning only 1 for the Weights sums which were larger.
+
+To fix this, i used random.randn() which uses gaussian method that gives random values between + infinity to - infinity and again multiplied it with 0.01 so that my results would be near to zero or else i will face same issue as before . So now coming back to this, These fix resulted my Z to have alot of variance, thus my sigmoid had a lot of variances .
+
+2 : I researched a bit and found out that modern NN prefer to keep their bias zero initially and Increase them during the training process rather than initializing them with random values. so i did the same.
+
+3: So to Compensate all of the changes i had to change my epochs from 100 to 1000 , This change gave my NN enough time to readjust the weights and biases and improve alot , as my learning rate was very low i.e (0.1).
