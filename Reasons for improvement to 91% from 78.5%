@@ -4,8 +4,7 @@ So what were the problems with my neural network?
 
 one main problem with this network was that I used Sigmoid for hidden layers. Sigmoid is a binary classification ( gives results between 0-1 and are mostly used for the output layer)  and it causes vanishing gradients. whereas ReLu gives higher values.
 
-MATH :
-
+------------------------------MATH ------------------
 suppose our weight sum is (z) = 7
 and w1 = 3
 
