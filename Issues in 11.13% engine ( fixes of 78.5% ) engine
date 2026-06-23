@@ -9,3 +9,5 @@ To fix this, i used random.randn() which uses gaussian method that gives random 
 2 : I researched a bit and found out that modern NN prefer to keep their bias zero initially and Increase them during the training process rather than initializing them with random values. so i did the same.
 
 3: So to Compensate all of the changes i had to change my epochs from 100 to 1000 , This change gave my NN enough time to readjust the weights and biases and improve alot , as my learning rate was very low i.e (0.1).
+
+thats all
