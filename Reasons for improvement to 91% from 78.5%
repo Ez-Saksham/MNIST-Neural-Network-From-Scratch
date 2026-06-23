@@ -1,0 +1,55 @@
+from 78.5% to 91%.
+
+So what were the problems with my neural network?
+
+one main problem with this network was that I used Sigmoid for hidden layers. Sigmoid is a binary classification ( gives results between 0-1 and are mostly used for the output layer)  and it causes vanishing gradients. whereas ReLu gives higher values.
+
+MATH :
+
+suppose our weight sum is (z) = 7
+and w1 = 3
+
+for sigmoid :
+
+activation(a) = 1 / 1+e^-z
+a≈0.999 ( highly active)
+
+but our correct activation should have been (y) = 0
+
+then the loss is C≈0.499. 
+
+now inside backpropagation:
+
+gradient of dc/dw = 0.001996 ( which is very tiny)
+
+then weight update is 
+w = w1 - n*dc/dw = 2.9998 (from 3 to 2.9998)
+
+NOTE DOWN : that our w1 barely changed (gradient vanishing which results in very slow learning of the network)
+meaning the network should do a large number of epochs to get a better accuracy.
+
+for ReLu:
+
+Relu Shows strength of the neuron rather than showing the activation as Hiddenlayer is not making decisions instead it is looking for features.
+
+a=max(0,7)  
+{0 if input < 0
+x if input > 0}
+
+then a = 7
+y = 0 
+
+then the cost would have been C = 24.5
+
+and the gradient dc/dw = 14,  thus the change in the network would be larger 
+
+then the update on weight is 
+w = w1 - n*dc/dw = 1.6 (from 3 to 1.6)
+which is large and the update on weights are not extremely small (gradients don’t vanish.)
+
+Relu neurons learn much faster than Sigmoids. 
+
+ReLu is often preferred in hidden layers when there is to identify strengths,features and when there is no need of negative values , in MINST we have already normalized our input in the range of 0-1.
+
+
+COMMENT : if i need to improve my understanding.
